@@ -1,7 +1,11 @@
 import classes from './EventsList.module.css';
 import {NavLink} from 'react-router-dom';
 
-function EventsList({ events }) {
+
+
+function EventsList({events}) {
+
+
   return (
     <div className={classes.events}>
       <h1>All Events</h1>
