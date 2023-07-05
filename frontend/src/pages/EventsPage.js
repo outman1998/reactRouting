@@ -4,9 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 function EventsPage() {
 
   const data = useLoaderData();
-  if(data.isError) {
-    return <p>{data.message}</p>
-  }
+
   const events = data.events
 
   return (
@@ -25,7 +23,8 @@ export async function loader() {
   const response = await fetch('http://localhost:8080/events');
 
   if (!response.ok) {
-    return {isError: true, message: "could not fetch events"};
+    // eslint-disable-next-line no-throw-literal
+    throw { message: 'could not fetch'};
   } else {
     return response;
   }
